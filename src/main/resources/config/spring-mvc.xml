@@ -34,7 +34,7 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/view/"></property>
-		<property name="suffix" value=".jsp"></property>
+		<property name="suffix" value=".html"></property>
 	</bean>
 
 	<bean id="multipartResolver"
