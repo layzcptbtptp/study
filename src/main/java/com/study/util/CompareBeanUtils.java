@@ -1,14 +1,3 @@
-/*
- * @(#)CompareBeanUtils.java Create on  2016-06-17
- *
- * Copyright (c) 2016 HappiVision
- *
- * Company: ä¸Šæµ·å¿«ä¹è®¯å¹¿å‘Šä¼ æ’­æœ‰é™å…¬å¸ (HappiVision Multi-Media Co.Ltd)
- *
- *
- *
- */
-
 package com.study.util;
 
 import java.beans.PropertyEditor;
@@ -23,7 +12,7 @@ import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.util.ReflectionUtils;
 
 /**
- * CompareBeanUtils.java Create on 2016-06-17 å¤„ç†æ—¥å¿—åˆ†æã€è®°å½•å¯¹åº”çš„å®ä½“ä¿®æ”¹çš„ç»“æœå‰å
+ * CompareBeanUtils.java Create on 2016-06-17 ´¦ÀíÈÕÖ¾·ÖÎö¡¢¼ÇÂ¼¶ÔÓ¦µÄÊµÌåĞŞ¸ÄµÄ½á¹ûÇ°ºó
  * 
  * @param <T>
  *
@@ -50,7 +39,7 @@ public class CompareBeanUtils<T> {
 		content = new StringBuffer();
 		this.clazz = clazz;
 		register(java.util.Date.class, new CustomDateEditor(
-				new SimpleDateFormat("yyyy-MM-dd"), true)); // æ³¨å†Œæ—¥æœŸç±»å‹
+				new SimpleDateFormat("yyyy-MM-dd"), true)); // ×¢²áÈÕÆÚÀàĞÍ
 	}
 
 	/**
@@ -64,14 +53,14 @@ public class CompareBeanUtils<T> {
 	}
 
 	/**
-	 * æ„é€ 
+	 * ¹¹Ôì
 	 *
 	 *
 	 * @param clazz
 	 * @param oldObject
-	 *            è€å¯¹è±¡
+	 *            ÀÏ¶ÔÏó
 	 * @param newObject
-	 *            æ–°çš„å¯¹è±¡
+	 *            ĞÂµÄ¶ÔÏó
 	 */
 	public CompareBeanUtils(Class<T> clazz, T oldObject, T newObject) {
 		this(clazz);
@@ -88,9 +77,9 @@ public class CompareBeanUtils<T> {
 	 * @author yangbin
 	 *
 	 * @param prop
-	 *            éœ€è¦è®°å½•æ—¥å¿—çš„å±æ€§
+	 *            ĞèÒª¼ÇÂ¼ÈÕÖ¾µÄÊôĞÔ
 	 * @param propLabel
-	 *            éœ€è¦è®°å½•æ—¥å¿—çš„å±æ€§çš„ä¸­æ–‡åï¼Œä¸€èˆ¬å¯¹åº”è¡¨å•å½“ä¸­çš„labelå±æ€§
+	 *            ĞèÒª¼ÇÂ¼ÈÕÖ¾µÄÊôĞÔµÄÖĞÎÄÃû£¬Ò»°ã¶ÔÓ¦±íµ¥µ±ÖĞµÄlabelÊôĞÔ
 	 */
 	public void compare(String prop, String propLabel) {
 		try {
@@ -145,7 +134,7 @@ public class CompareBeanUtils<T> {
 	}
 
 	/*
-	 * è®°å½•æ–°å€¼
+	 * ¼ÇÂ¼ĞÂÖµ
 	 */
 
 	/**
@@ -159,15 +148,15 @@ public class CompareBeanUtils<T> {
 	 * @param newValue
 	 */
 	private void comparedIsAdd(String propLabel, Object newValue) {
-		content.append("åˆ›å»ºäº† [");
+		content.append("´´½¨ÁË [");
 		content.append(propLabel);
-		content.append("],æ–°å€¼ä¸º\"");
+		content.append("],ĞÂÖµÎª\"");
 		content.append(format(newValue));
 		content.append("\";");
 	}
 
 	/*
-	 * è®°å½•å˜æ›´æ•°æ®
+	 * ¼ÇÂ¼±ä¸üÊı¾İ
 	 */
 
 	/**
@@ -183,12 +172,12 @@ public class CompareBeanUtils<T> {
 	 */
 	private void comparedIsEdit(String propLabel, Object oldValue,
 			Object newValue) {
-		content.append("ä¿®æ”¹äº†[");
+		content.append("ĞŞ¸ÄÁË[");
 		content.append(propLabel);
 		content.append("],");
-		content.append("æ—§å€¼ä¸º\"");
+		content.append("¾ÉÖµÎª\"");
 		content.append(format(oldValue));
-		content.append("\",æ–°å€¼ä¸º\"");
+		content.append("\",ĞÂÖµÎª\"");
 		content.append(format(newValue));
 		content.append("\";");
 	}
@@ -203,14 +192,14 @@ public class CompareBeanUtils<T> {
 	 * @param propLabel
 	 */
 	private void comparedIsdel(String propLabel) {
-		content.append("åˆ é™¤äº† [");
+		content.append("É¾³ıÁË [");
 		content.append(propLabel);
 		content.append("]");
 		content.append(";");
 	}
 
 	/**
-	 * æ ¼å¼åŒ–æ•°æ®ç±»å‹
+	 * ¸ñÊ½»¯Êı¾İÀàĞÍ
 	 *
 	 * @param obj
 	 * @return
@@ -221,7 +210,6 @@ public class CompareBeanUtils<T> {
 		}
 
 		Class clz = obj.getClass();
-
 		if (propEditorMap.containsKey(clz)) {
 			PropertyEditor pe = propEditorMap.get(clz);
 
@@ -328,7 +316,7 @@ public class CompareBeanUtils<T> {
 	/**
 	 * toResult Create on 2016-06-17
 	 * 
-	 * @description æ•°æ®ç»“æœ
+	 * @description Êı¾İ½á¹û
 	 *
 	 * @author yangbin
 	 *
