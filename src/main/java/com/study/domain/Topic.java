@@ -1,11 +1,12 @@
 package com.study.domain;
 
-import java.util.Date;
-
 public class Topic {
 	int id;
 	String title;
 	String content;
+
+	public Topic() {
+	}
 
 	public Topic(int id, String title, String content) {
 		super();

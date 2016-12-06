@@ -1,21 +1,17 @@
 package com.study.controller;
 
-import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.study.domain.Topic;
 
 @Controller
 public class LoginController {
 
-	@RequestMapping("/login.do")
-	public String login(String username, Model model) {
-		if (StringUtils.equalsIgnoreCase("layz", username)) {
-			return "../index";
-		} else {
-			model.addAttribute("message", "哈哈哈，你进不去");
-			return "../login";
-		}
+	@RequestMapping(value = "/save", method = RequestMethod.POST)
+	public void testA(Topic topic) {
+		System.out.println(1111111);
+		org.springframework.util.Assert.notNull(topic);
 	}
-
 }

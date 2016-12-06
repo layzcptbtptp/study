@@ -12,7 +12,7 @@ import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.util.ReflectionUtils;
 
 /**
- * CompareBeanUtils.java Create on 2016-06-17 ´¦ÀíÈÕÖ¾·ÖÎö¡¢¼ÇÂ¼¶ÔÓ¦µÄÊµÌåĞŞ¸ÄµÄ½á¹ûÇ°ºó
+ * CompareBeanUtils.java Create on 2016-06-17 å¤„ç†æ—¥å¿—åˆ†æã€è®°å½•å¯¹åº”çš„å®ä½“ä¿®æ”¹çš„ç»“æœå‰å
  * 
  * @param <T>
  *
@@ -39,7 +39,7 @@ public class CompareBeanUtils<T> {
 		content = new StringBuffer();
 		this.clazz = clazz;
 		register(java.util.Date.class, new CustomDateEditor(
-				new SimpleDateFormat("yyyy-MM-dd"), true)); // ×¢²áÈÕÆÚÀàĞÍ
+				new SimpleDateFormat("yyyy-MM-dd"), true)); // æ³¨å†Œæ—¥æœŸç±»å‹
 	}
 
 	/**
@@ -53,14 +53,14 @@ public class CompareBeanUtils<T> {
 	}
 
 	/**
-	 * ¹¹Ôì
+	 * æ„é€ 
 	 *
 	 *
 	 * @param clazz
 	 * @param oldObject
-	 *            ÀÏ¶ÔÏó
+	 *            è€å¯¹è±¡
 	 * @param newObject
-	 *            ĞÂµÄ¶ÔÏó
+	 *            æ–°çš„å¯¹è±¡
 	 */
 	public CompareBeanUtils(Class<T> clazz, T oldObject, T newObject) {
 		this(clazz);
@@ -77,9 +77,9 @@ public class CompareBeanUtils<T> {
 	 * @author yangbin
 	 *
 	 * @param prop
-	 *            ĞèÒª¼ÇÂ¼ÈÕÖ¾µÄÊôĞÔ
+	 *            éœ€è¦è®°å½•æ—¥å¿—çš„å±æ€§
 	 * @param propLabel
-	 *            ĞèÒª¼ÇÂ¼ÈÕÖ¾µÄÊôĞÔµÄÖĞÎÄÃû£¬Ò»°ã¶ÔÓ¦±íµ¥µ±ÖĞµÄlabelÊôĞÔ
+	 *            éœ€è¦è®°å½•æ—¥å¿—çš„å±æ€§çš„ä¸­æ–‡åï¼Œä¸€èˆ¬å¯¹åº”è¡¨å•å½“ä¸­çš„labelå±æ€§
 	 */
 	public void compare(String prop, String propLabel) {
 		try {
@@ -134,7 +134,7 @@ public class CompareBeanUtils<T> {
 	}
 
 	/*
-	 * ¼ÇÂ¼ĞÂÖµ
+	 * è®°å½•æ–°å€¼
 	 */
 
 	/**
@@ -148,15 +148,15 @@ public class CompareBeanUtils<T> {
 	 * @param newValue
 	 */
 	private void comparedIsAdd(String propLabel, Object newValue) {
-		content.append("´´½¨ÁË [");
+		content.append("åˆ›å»ºäº† [");
 		content.append(propLabel);
-		content.append("],ĞÂÖµÎª\"");
+		content.append("],æ–°å€¼ä¸º\"");
 		content.append(format(newValue));
 		content.append("\";");
 	}
 
 	/*
-	 * ¼ÇÂ¼±ä¸üÊı¾İ
+	 * è®°å½•å˜æ›´æ•°æ®
 	 */
 
 	/**
@@ -172,12 +172,12 @@ public class CompareBeanUtils<T> {
 	 */
 	private void comparedIsEdit(String propLabel, Object oldValue,
 			Object newValue) {
-		content.append("ĞŞ¸ÄÁË[");
+		content.append("ä¿®æ”¹äº†[");
 		content.append(propLabel);
 		content.append("],");
-		content.append("¾ÉÖµÎª\"");
+		content.append("æ—§å€¼ä¸º\"");
 		content.append(format(oldValue));
-		content.append("\",ĞÂÖµÎª\"");
+		content.append("\",æ–°å€¼ä¸º\"");
 		content.append(format(newValue));
 		content.append("\";");
 	}
@@ -192,14 +192,14 @@ public class CompareBeanUtils<T> {
 	 * @param propLabel
 	 */
 	private void comparedIsdel(String propLabel) {
-		content.append("É¾³ıÁË [");
+		content.append("åˆ é™¤äº† [");
 		content.append(propLabel);
 		content.append("]");
 		content.append(";");
 	}
 
 	/**
-	 * ¸ñÊ½»¯Êı¾İÀàĞÍ
+	 * æ ¼å¼åŒ–æ•°æ®ç±»å‹
 	 *
 	 * @param obj
 	 * @return
@@ -316,7 +316,7 @@ public class CompareBeanUtils<T> {
 	/**
 	 * toResult Create on 2016-06-17
 	 * 
-	 * @description Êı¾İ½á¹û
+	 * @description æ•°æ®ç»“æœ
 	 *
 	 * @author yangbin
 	 *
